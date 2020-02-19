@@ -1,4 +1,4 @@
-GoVkBot
+github.com/Alnezis/GoVkBot
 =======
 
 Module for fast development of bots for [VK groups](https://vk.com/dev/manuals) based on long polls
@@ -8,10 +8,10 @@ Example:
 package main
 
 import (
-	 "GoVkBot"
-	"GoVkBot/event"
-	"GoVkBot/vk"
-    "GoVkBot/keyboard"
+	 "github.com/Alnezis/GoVkBot"
+	"github.com/Alnezis/GoVkBot/event"
+	"github.com/Alnezis/GoVkBot/vk"
+    "github.com/Alnezis/GoVkBot/keyboard"
 )
 
 const (
@@ -20,10 +20,10 @@ const (
 	version = "5.103"
 )
 
-var bot *govkbot.Bot
+var bot *github.com/Alnezis/GoVkBot.Bot
 
 func main() {
-	bot = govkbot.CreateBot(groupID, token, version)
+	bot = github.com/Alnezis/GoVkBot.CreateBot(groupID, token, version)
 
 	// Handling `test` command
 	bot.OnCommand("test", func(args []string, command *event.Command) bool {

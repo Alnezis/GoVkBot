@@ -1,7 +1,7 @@
 package event
 
 import (
-	"GoVkBot/vk/object"
+	"github.com/Alnezis/GoVkBot/vk/object"
 )
 
 type Payload struct {

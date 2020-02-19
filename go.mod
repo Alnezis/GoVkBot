@@ -1,4 +1,4 @@
-module GoVkBot
+module github.com/Alnezis/GoVkBot
 
 go 1.13
 

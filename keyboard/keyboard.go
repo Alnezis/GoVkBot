@@ -1,8 +1,8 @@
 package keyboard
 
 import (
-	"GoVkBot/vk"
 	"encoding/json"
+	"github.com/Alnezis/GoVkBot/vk"
 	"log"
 	"strings"
 	"text/template"
