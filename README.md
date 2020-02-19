@@ -20,11 +20,10 @@ const (
 	version = "5.103"
 )
 
-var bot *github.com/Alnezis/GoVkBot.Bot
+var bot *GoVkBot.Bot
 
 func main() {
-	bot = github.com/Alnezis/GoVkBot.CreateBot(groupID, token, version)
-
+	bot = GoVkBot.CreateBot(groupID, token, version)
 	// Handling `test` command
 	bot.OnCommand("test", func(args []string, command *event.Command) bool {
 
