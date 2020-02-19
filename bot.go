@@ -1,13 +1,13 @@
 package govkbot
 
 import (
+	"GoVkBot/event"
+	"GoVkBot/event/handlers"
+	"GoVkBot/log"
+	"GoVkBot/vk"
+	"GoVkBot/vk/object"
 	"encoding/json"
 	"fmt"
-	"github.com/AlexBrin/goVkBot/event"
-	"github.com/AlexBrin/goVkBot/event/handlers"
-	"github.com/AlexBrin/goVkBot/log"
-	"github.com/AlexBrin/goVkBot/vk"
-	"github.com/AlexBrin/goVkBot/vk/object"
 	"github.com/mitchellh/mapstructure"
 	"html/template"
 	"io/ioutil"

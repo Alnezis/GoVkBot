@@ -1,6 +1,6 @@
 package handlers
 
-import "github.com/AlexBrin/goVkBot/event"
+import "GoVkBot/event"
 
 type EventHandler func(event.Event) bool
 

@@ -1,7 +1,7 @@
 package event
 
 import (
-	"github.com/AlexBrin/goVkBot/vk/object"
+	"GoVkBot/vk/object"
 )
 
 type Command struct {

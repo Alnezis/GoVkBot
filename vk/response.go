@@ -1,7 +1,7 @@
 package vk
 
 import (
-	"github.com/AlexBrin/goVkBot/vk/object"
+	"GoVkBot/vk/object"
 )
 
 type Response struct {
