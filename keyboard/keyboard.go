@@ -4,20 +4,19 @@ import (
 	"encoding/json"
 	"github.com/Alnezis/GoVkBot/vk"
 	"log"
-	"strings"
-	"text/template"
+	"net/url"
 )
 
 type Action struct {
-	Type    string
-	Payload string `json:",omitempty"`
-	Link    string `json:",omitempty"`
-	Label   string
+	Type    string `json:"type"`
+	Payload string `json:"payload,omitempty"`
+	Link    string `json:"link,omitempty"`
+	Label   string `json:"label"`
 }
 
 type Button struct {
-	Action Action
-	Color  string `json:",omitempty"`
+	Action Action `json:"action"`
+	Color  string `json:"color,omitempty"`
 }
 
 func New(inline bool, args ...[]Button) vk.H {
@@ -31,7 +30,7 @@ func New(inline bool, args ...[]Button) vk.H {
 	if err != nil {
 		log.Println(err)
 	}
-	params["keyboard"] = strings.ToLower(string(jsonKeyboard))
+	params["keyboard"] = string(jsonKeyboard)
 	return params
 }
 
@@ -46,7 +45,7 @@ func ButtonText(label, command, color string, payload map[string]interface{}) Bu
 		Action: Action{
 			Type:    "text",
 			Payload: string(jsonPayload),
-			Label:   template.URLQueryEscaper(label),
+			Label:   url.QueryEscape(label),
 		},
 		Color: color,
 	}
@@ -58,7 +57,7 @@ func ButtonLink(label, link string) Button {
 		Action: Action{
 			Type:  "open_link",
 			Link:  link,
-			Label: template.URLQueryEscaper(label),
+			Label: url.QueryEscape(label),
 		},
 	}
 
