@@ -8,14 +8,14 @@ import (
 )
 
 type Action struct {
-	Type    string `json:"type"`
+	Type    string `json:"type,omitempty"`
 	Payload string `json:"payload,omitempty"`
 	Link    string `json:"link,omitempty"`
-	Label   string `json:"label"`
+	Label   string `json:"label,omitempty"`
 }
 
 type Button struct {
-	Action Action `json:"action"`
+	Action Action `json:"action,omitempty"`
 	Color  string `json:"color,omitempty"`
 }
 
@@ -25,6 +25,22 @@ func New(inline bool, args ...[]Button) vk.H {
 
 	h["inline"] = inline
 	h["one_time"] = false
+	h["buttons"] = args
+	jsonKeyboard, err := json.Marshal(h)
+	if err != nil {
+		log.Println(err)
+
+	}
+	params["keyboard"] = string(jsonKeyboard)
+	return params
+}
+
+func NewOne(oneTime bool, args ...[]Button) vk.H {
+	h := vk.H{}
+	params := vk.H{}
+
+	h["inline"] = false
+	h["one_time"] = oneTime
 	h["buttons"] = args
 	jsonKeyboard, err := json.Marshal(h)
 	if err != nil {

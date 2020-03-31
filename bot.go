@@ -1,4 +1,4 @@
-package github
+package GoVkBot
 
 import (
 	"encoding/json"
