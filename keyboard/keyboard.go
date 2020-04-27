@@ -12,6 +12,9 @@ type Action struct {
 	Payload string `json:"payload,omitempty"`
 	Link    string `json:"link,omitempty"`
 	Label   string `json:"label,omitempty"`
+	AppID   int    `json:"app_id,omitempty"`
+	OwnerID int    `json:"owner_id,omitempty"`
+	Hash    string `json:"hash,omitempty"`
 }
 
 type Button struct {
@@ -74,6 +77,18 @@ func ButtonLink(label, link string) Button {
 			Type:  "open_link",
 			Link:  link,
 			Label: url.QueryEscape(label),
+		},
+	}
+
+	return b
+}
+func ButtonApp(label string, ownerId, appId int) Button {
+	b := Button{
+		Action: Action{
+			Type:    "open_app",
+			OwnerID: ownerId,
+			AppID:   appId,
+			Label:   url.QueryEscape(label),
 		},
 	}
 
