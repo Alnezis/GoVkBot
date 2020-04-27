@@ -168,7 +168,7 @@ func (b *Bot) SendMessage(message string, to float64, params vk.H) {
 	}
 }
 
-func (b *Bot) handle(updates []vk.LongPollUpdate) {
+func (b *Bot) Handle(updates []vk.LongPollUpdate) {
 	var ev event.Event
 	for _, update := range updates {
 		switch update.EventType {
@@ -343,6 +343,6 @@ func (b *Bot) Polling() {
 			continue
 		}
 
-		b.handle(response.Updates)
+		b.Handle(response.Updates)
 	}
 }

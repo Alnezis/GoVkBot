@@ -89,16 +89,28 @@ func (api *API) Upload(uploadServer, filename, fieldName string, file *os.File) 
 	}
 
 	body := &bytes.Buffer{}
+
 	writer := multipart.NewWriter(body)
-	part, _ := writer.CreateFormFile(fieldName, filename)
-	_, _ = io.Copy(part, file)
+	part, err := writer.CreateFormFile(fieldName, filename)
+	if err != nil {
+		log.Println(err)
+	}
+	_, err = io.Copy(part, file)
+	if err != nil {
+		log.Println(err)
+	}
 	_ = writer.Close()
 
-	req, _ := http.NewRequest("POST", uploadServer, body)
+	req, err := http.NewRequest("POST", uploadServer, body)
+
 	req.Header.Set("Content-Type", writer.FormDataContentType())
+	if err != nil {
+		log.Println(err)
+	}
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
+
 	if err != nil {
 		log.Println(err)
 		return UploadResponse{
@@ -118,8 +130,14 @@ func (api *API) Upload(uploadServer, filename, fieldName string, file *os.File) 
 	_ = resp.Body.Close()
 
 	response := UploadResponse{}
-	_ = json.Unmarshal(b, &response)
-	_ = json.Unmarshal(b, &response.Response)
+	err = json.Unmarshal(b, &response)
+	if err != nil {
+		log.Println(err)
+	}
+	err = json.Unmarshal(b, &response.Response)
+	if err != nil {
+		log.Println(err)
+	}
 
 	return response
 }
