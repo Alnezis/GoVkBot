@@ -18,11 +18,11 @@ type MessageActionPhoto struct {
 }
 
 type MessageAction struct {
-	Type     string             `json:"type"`
-	MemberID float64            `json:"member_id"`
-	Text     string             `json:"text"`
-	Email    string             `json:"email"`
-	Photo    MessageActionPhoto `json:"photo"`
+	Type     string             `json:"type" map:"type"`
+	MemberID float64            `json:"member_id" map:"member_id"`
+	Text     string             `json:"text" map:"text"`
+	Email    string             `json:"email" map:"email"`
+	Photo    MessageActionPhoto `json:"photo" map:"photo"`
 }
 
 type PrivateMessage struct {
