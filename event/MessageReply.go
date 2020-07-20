@@ -5,7 +5,7 @@ import (
 )
 
 type MessageReply struct {
-	PrivateMessage *object.PrivateMessage `json:"" map:""`
+	Message *object.Message `json:"" map:""`
 }
 
 func (m MessageReply) GetName() string {

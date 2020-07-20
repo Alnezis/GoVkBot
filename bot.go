@@ -240,14 +240,14 @@ func (b *Bot) Handle(updates []vk.LongPollUpdate) {
 			ev = &event.MessageNew{PrivateMessage: &pm}
 
 		case event.MessageEditEvent:
-			pm := object.PrivateMessage{}
+			pm := object.Message{}
 			_ = createDecoder(&pm).Decode(update.Object)
-			ev = &event.MessageEdit{PrivateMessage: &pm}
+			ev = &event.MessageEdit{Message: &pm}
 
 		case event.MessageReplyEvent:
-			pm := object.PrivateMessage{}
+			pm := object.Message{}
 			_ = createDecoder(&pm).Decode(update.Object)
-			ev = &event.MessageReply{PrivateMessage: &pm}
+			ev = &event.MessageReply{Message: &pm}
 
 		case event.MessageAllowEvent:
 			ev = &event.MessageAllow{}

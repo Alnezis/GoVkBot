@@ -5,7 +5,7 @@ import (
 )
 
 type MessageEdit struct {
-	PrivateMessage *object.PrivateMessage `json:"" map:""`
+	Message *object.Message `json:"" map:""`
 }
 
 func (m MessageEdit) GetName() string {
