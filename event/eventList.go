@@ -15,6 +15,8 @@ const (
 	MessageAllowEvent = "message_allow"
 	// unsubscribe from messages
 	MessageDenyEvent = "message_deny"
+	// action with a message. Used for working with Callback buttons
+	MessageEvent = "message_event"
 
 	// photos
 	//EventPhotoNew            = "photo_new"

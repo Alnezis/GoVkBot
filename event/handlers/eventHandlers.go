@@ -12,3 +12,4 @@ type MessageEditHandler func(edit *event.MessageEdit) bool
 type MessageReplyHandler func(reply *event.MessageReply) bool
 type MessageAllowHandler func(allow *event.MessageAllow) bool
 type MessageDenyHandler func(deny *event.MessageDeny) bool
+type MessageEventHandler func(event *event.ObjectMessageEvent) bool

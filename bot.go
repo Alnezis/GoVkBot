@@ -239,6 +239,11 @@ func (b *Bot) Handle(updates []vk.LongPollUpdate) {
 
 			ev = &event.MessageNew{PrivateMessage: &pm}
 
+		case event.MessageEvent:
+			pm := event.ObjectMessageEvent{}
+			_ = createDecoder(&pm).Decode(update.Object)
+			ev = &pm
+
 		case event.MessageEditEvent:
 			pm := object.Message{}
 			_ = createDecoder(&pm).Decode(update.Object)
@@ -261,7 +266,6 @@ func (b *Bot) Handle(updates []vk.LongPollUpdate) {
 			continue
 		}
 
-		_ = createDecoder(ev).Decode(update.Object)
 		var next bool
 		for _, handle := range b.handlers[ev.GetName()] {
 			next = handle(ev)
