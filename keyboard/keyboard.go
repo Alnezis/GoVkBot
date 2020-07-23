@@ -82,6 +82,7 @@ func ButtonLink(label, link string) Button {
 
 	return b
 }
+
 func ButtonApp(label string, ownerId, appId int) Button {
 	b := Button{
 		Action: Action{
@@ -93,4 +94,20 @@ func ButtonApp(label string, ownerId, appId int) Button {
 	}
 
 	return b
+}
+
+func ButtonCallBack(label, command, color string, payload map[string]interface{}) Button {
+	payload["command"] = command
+	jsonPayload, err := json.Marshal(payload)
+	if err != nil {
+		log.Println(err)
+	}
+	return Button{
+		Action: Action{
+			Type:    "callback",
+			Payload: string(jsonPayload),
+			Label:   url.QueryEscape(label),
+		},
+		Color: color,
+	}
 }

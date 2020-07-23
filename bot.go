@@ -151,7 +151,7 @@ func (b *Bot) On(eventType string, h ...handlers.EventHandler) {
 //	}
 //}
 
-func (b *Bot) SendMessage(message string, to float64, params vk.H) {
+func (b *Bot) SendMessage(message string, to int, params vk.H) {
 	params["peer_id"] = to
 	params["message"] = template.URLQueryEscaper(message)
 	params["random_id"] = time.Now().UnixNano() + int64(to)

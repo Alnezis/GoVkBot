@@ -19,7 +19,7 @@ type MessageActionPhoto struct {
 
 type MessageAction struct {
 	Type     string             `json:"type" map:"type"`
-	MemberID float64            `json:"member_id" map:"member_id"`
+	MemberID int                `json:"member_id" map:"member_id"`
 	Text     string             `json:"text" map:"text"`
 	Email    string             `json:"email" map:"email"`
 	Photo    MessageActionPhoto `json:"photo" map:"photo"`
@@ -35,20 +35,20 @@ type ClientInfo struct {
 	Keyboard       bool     `json:"keyboard" map:"keyboard"`
 	InlineKeyboard bool     `json:"inline_keyboard" map:"inline_keyboard"`
 	Carousel       bool     `json:"carousel" map:"carousel"`
-	LangID         float64  `json:"lang_id" map:"lang_id"`
+	LangID         int      `json:"lang_id" map:"lang_id"`
 }
 
 type Message struct {
-	ID float64 `json:"id" map:"id"`
+	ID int `json:"id" map:"id"`
 	// Conversation Message ID
-	MessageID         float64           `json:"conversation_message_id" map:"conversation_message_id"`
-	Date              float64           `json:"date" map:"date"`
-	PeerID            float64           `json:"peer_id" map:"peer_id"`
-	ExpireTTL         float64           `json:"expire_ttl,omitempty" map:"expire_ttl,omitempty"`
-	FromID            float64           `json:"from_id" map:"from_id"`
-	UserID            float64           `json:"from_id" map:"from_id"`
+	MessageID         int               `json:"conversation_message_id" map:"conversation_message_id"`
+	Date              int               `json:"date" map:"date"`
+	PeerID            int               `json:"peer_id" map:"peer_id"`
+	ExpireTTL         int               `json:"expire_ttl,omitempty" map:"expire_ttl,omitempty"`
+	FromID            int               `json:"from_id" map:"from_id"`
+	UserID            int               `json:"from_id" map:"from_id"`
 	Text              string            `json:"text" map:"text"`
-	RandomID          float64           `json:"random_id" map:"random_id"`
+	RandomID          int               `json:"random_id" map:"random_id"`
 	Ref               string            `json:"ref" map:"ref"`
 	RefSource         string            `json:"ref_source" map:"ref_source"`
 	Attachments       []*Attachment     `json:"attachments" map:"attachments"`

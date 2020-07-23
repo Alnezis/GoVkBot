@@ -1,19 +1,19 @@
 package object
 
 type Coordinates struct {
-	Latitude  float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
+	Latitude  int `json:"latitude"`
+	Longitude int `json:"longitude"`
 }
 
 type Place struct {
-	ID        float64 `json:"id"`
-	Title     string  `json:"title"`
-	Latitude  float64 `json:"latitude"`
-	Longitude float64 `json:"longitude"`
-	CreatedAt float64 `json:"created"`
-	Icon      string  `json:"icon"`
-	Country   string  `json:"country"`
-	City      string  `json:"city"`
+	ID        int    `json:"id"`
+	Title     string `json:"title"`
+	Latitude  int    `json:"latitude"`
+	Longitude int    `json:"longitude"`
+	CreatedAt int    `json:"created"`
+	Icon      string `json:"icon"`
+	Country   string `json:"country"`
+	City      string `json:"city"`
 }
 
 type Geo struct {

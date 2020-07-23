@@ -9,14 +9,14 @@ type Preview struct {
 }
 
 type Doc struct {
-	ID      float64  `json:"id" map:"id"`
-	OwnerID float64  `json:"owner_id" map:"owner_id"`
+	ID      int      `json:"id" map:"id"`
+	OwnerID int      `json:"owner_id" map:"owner_id"`
 	Title   string   `json:"title" map:"title"`
-	Size    float64  `json:"size" map:"size"`
+	Size    int      `json:"size" map:"size"`
 	Ext     string   `json:"ext" map:"ext"`
 	Url     string   `json:"url" map:"url"`
-	Date    float64  `json:"date" map:"date"`
-	Type    float64  `json:"type" map:"type"`
+	Date    int      `json:"date" map:"date"`
+	Type    int      `json:"type" map:"type"`
 	Preview *Preview `json:"preview" map:"preview"`
 }
 

@@ -6,16 +6,16 @@ type Price struct {
 }
 
 type Market struct {
-	ID          float64 `json:"id" map:"id"`
-	OwnerID     float64 `json:"owner_id" map:"owner_id"`
-	Title       string  `json:"title" map:"title"`
-	Description string  `json:"description" map:"description"`
-	Price       *Price  `json:"price" map:"price"`
-	Photo       string  `json:"thumb_photo" map:"thumb_photo"`
-	price       float64
+	ID          int    `json:"id" map:"id"`
+	OwnerID     int    `json:"owner_id" map:"owner_id"`
+	Title       string `json:"title" map:"title"`
+	Description string `json:"description" map:"description"`
+	Price       *Price `json:"price" map:"price"`
+	Photo       string `json:"thumb_photo" map:"thumb_photo"`
+	price       int
 }
 
-//func (p *Market) GetPrice() (price float64) {
+//func (p *Market) GetPrice() (price int) {
 //	if p.price != 0 {
 //		return p.price
 //	}
