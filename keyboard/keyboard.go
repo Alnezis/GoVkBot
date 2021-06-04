@@ -71,12 +71,18 @@ func ButtonText(label, command, color string, payload map[string]interface{}) Bu
 	return b
 }
 
-func ButtonLink(label, link string) Button {
+func ButtonLink(label, link string, payload map[string]interface{}) Button {
+	jsonPayload, err := json.Marshal(payload)
+	if err != nil {
+		log.Println(err)
+	}
+
 	b := Button{
 		Action: Action{
-			Type:  "open_link",
-			Link:  link,
-			Label: url.QueryEscape(label),
+			Type:    "open_link",
+			Link:    link,
+			Label:   url.QueryEscape(label),
+			Payload: string(jsonPayload),
 		},
 	}
 
